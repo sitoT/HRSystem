@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Staff>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container pt-5 mb-5">
+    <div class="d-flex justify-content-between">
+        <span class="display-5">Staff Record Page</span>
+        <a class="btn btn-primary" style="width:150px" asp-action="Create" asp-controller="Staff">Add New Staff</a>
+
+    </div>
+    <div>
+        <table class="mt-5 table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Position
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th class="text-danger">
+                        Action 
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var obj in Model)
+                {
+                    <tr>
+                        <td class="w-25">
+                            @obj.Name
+                        </td>
+                        <td class="w-25">
+                            @obj.Position
+                        </td>
+                        <td class="w-25">
+                            @obj.Email
+                        </td>
+                        <td class="d-flex justify-content-around">
+                            <a asp-action="Edit" asp-controller="Staff" class="btn btn-outline-primary" style="width:120px" asp-route-id="@obj.Id">Edit</a>
+                            <a asp-action="Delete" asp-controller="Staff" class="btn btn-outline-danger" style="width:120px">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>@*
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
+
+*@
