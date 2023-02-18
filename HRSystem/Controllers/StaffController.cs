@@ -76,5 +76,27 @@ namespace HRSystem.Controllers
 
 
         }
+        
+        public IActionResult Delete(int id)
+        {
+            var objOfStaff = _db.staff.Find(id);
+            if (objOfStaff == null)
+            {
+                return NotFound();
+            }
+            return View(objOfStaff);
+        }
+
+        //[Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteStaff(Staff obj)
+        {
+                _db.staff.Remove(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+
+           
+        }
     }
 }

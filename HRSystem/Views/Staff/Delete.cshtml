@@ -1,32 +1,32 @@
 ﻿@model Staff
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Delete";
 }
 
 <div class="container pt-5 mb-5">
     <div class="d-flex justify-content-center">
-        <div class="border border-1 border-light w-50 p-5">
-            <div class="display-6 mb-3 bt-3">New Staff</div>
-            <div class="">
-                <form class="form" method="post">
+        <div class="w-50">
+            <div class="display-5 mb-3 mt-3">Delete Staff</div>
+            <div class=" p-5 border border-1 border-info ">
+                <form class="form" method="post" asp-action="DeleteStaff">
                     <input asp-for="Id" hidden />
                     <div class="pb-3">
                         <span asp-validation-for="Name"></span>
                         <label asp-for="Name"></label>
-                        <input asp-for="Name" class="form-control shadow-none"/>
+                        <input asp-for="Name" class="form-control shadow-none" disabled/>
                     </div>
                     <div class="pb-3">
                         <span asp-validation-for="Position"></span>
                         <label asp-for="Position"></label>
-                        <input asp-for="Position" class="form-control shadow-none"/>
+                        <input asp-for="Position" class="form-control shadow-none" disabled />
                     </div>
-                    <div class="pb-3">
+                    <div class="pb-4">
                         <span asp-validation-for="Email"></span>
                         <label asp-for="Email"></label>
-                        <input asp-for="Email" class="form-control shadow-none"  />
+                        <input asp-for="Email" class="form-control shadow-none" disabled />
                     </div>
                     <div class="pb-3">
-                        <button type="submit" class="btn btn-primary shadow-none" style="width:150px">Update</button>
+                        <button type="submit" class="btn btn-primary shadow-none" style="width:150px">Delete</button>
                         <a class="btn btn-outline-danger shadow-none" style="width:150px" asp-action="Index">Cancel</a>
                     </div>
                 </form>
