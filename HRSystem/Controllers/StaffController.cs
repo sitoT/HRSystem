@@ -40,6 +40,7 @@ namespace HRSystem.Controllers
             {
                 _db.staff.Add(obj);
                 _db.SaveChanges();
+                TempData["success"] = "Staff Successfully Created";
                 return RedirectToAction("Index");
 
             }
@@ -65,9 +66,9 @@ namespace HRSystem.Controllers
 
             if (ModelState.IsValid)
             {
-
                 _db.staff.Update(obj);
                 _db.SaveChanges();
+                TempData["success"] = "Edit was Successful";
                 return RedirectToAction("Index");
 
             }
@@ -92,9 +93,10 @@ namespace HRSystem.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteStaff(Staff obj)
         {
-                _db.staff.Remove(obj);
-                _db.SaveChanges();
-                return RedirectToAction("Index");
+            _db.staff.Remove(obj);
+            _db.SaveChanges();
+            TempData["success"] = "Item Deleted Successfully";
+            return RedirectToAction("Index");
 
            
         }
